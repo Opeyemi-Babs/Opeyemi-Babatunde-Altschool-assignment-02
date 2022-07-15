@@ -1,9 +1,15 @@
-const assignment = [
+const assignment = require('../src/assignment.js');
+
+const { sumOfNumbers } = assignment;
+const maybe = sumOfNumbers === undefined ? test.skip : test;
+
+maybe('Challenge - 1 : my sumNumbers function can sum an array of numbers', () => {
+    const numbers = [
         68,
         -68,
         27,
         94,
-        72  
+        72,
         -25,
         -51,
         32,
@@ -19,10 +25,12 @@ const assignment = [
         -56,
         -91,
         -50
-];
-let sumOfNumbers = 0
-for (let index = 0; index < assignment.length; index++){
-    sumOfNumbers += assignment[index];
+    ];
+  function sumOfNumbers(arrayOfNumbers) {
+    return arrayOfNumbers.length;
 }
+assignment.sumOfNumbers = sumOfNumbers;
 
-console.log(sumOfNumbers)
+    return (sumOfNumbers(numbers)).toBe(75);
+  
+});
